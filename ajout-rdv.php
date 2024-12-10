@@ -34,16 +34,23 @@ try {
         <input type="time" name="heure" id="heure">
         <label for="patients"></label>
         <select name="idPatient" id="idPatient">
-            <?php 
-            foreach($users as $user){
-                echo '<option value="'. $user['id'] .  '">' . $user['lastname'] . " " . $user['firstname'] . '</option>';
+            <?php
+            foreach ($users as $user) {
+                echo '<option value="' . $user['id'] .  '">' . $user['lastname'] . " " . $user['firstname'] . '</option>';
             }
             ?>
         </select>
         <div>
             <button type="submit">Prendre RDV</button>
+
         </div>
+
     </form>
+    <div>
+        <form action="./liste-rdv.php" >
+            <button type="submit" id="listeRDV">Liste RDV</button>
+        </form>
+    </div>
 </body>
 
 </html>

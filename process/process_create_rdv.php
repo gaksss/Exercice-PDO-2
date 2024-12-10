@@ -13,17 +13,16 @@ require_once '../utils/connect_db.php';
 $sql = "INSERT INTO appointments (dateHour, idPatients)
  VALUES (:dateHour, :idPatients)";
 $dateHour = $_POST['date']." ". $_POST['heure'] ;
-// var_dump($dateHour);
-// die();
 try {
     $stmt = $pdo->prepare($sql);
     $users = $stmt->execute([
         ':dateHour' => $dateHour,
         ':idPatients' => $_POST["idPatient"]
-        
-    ]); // ou fetch si vous savez que vous n'allez avoir qu'un seul résultat
+       
+    ] 
+); // ou fetch si vous savez que vous n'allez avoir qu'un seul résultat
 
-
+echo "RDV pris";
 
 
 } catch (PDOException $error) {
@@ -31,5 +30,5 @@ try {
 }
 
 
-header("Location: ../ajout-rdv.php");
+header("Location: ../liste-rdv.php");
 // exit;
