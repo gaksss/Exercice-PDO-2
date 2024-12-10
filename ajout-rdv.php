@@ -26,16 +26,23 @@ try {
 </head>
 
 <body>
-    <form action="" method="post">
+    <form action="./process/process_create_rdv.php" method="post">
 
-        <label for="rdv"></label>
-            <input type="date" name="rdv" id="rdv">
-        
-
+        <label for="date"></label>
+        <input type="date" name="date" id="date">
+        <label for="heure"></label>
+        <input type="time" name="heure" id="heure">
         <label for="patients"></label>
-        <select name="patient" id="patient">
-            
+        <select name="idPatient" id="idPatient">
+            <?php 
+            foreach($users as $user){
+                echo '<option value="'. $user['id'] .  '">' . $user['lastname'] . " " . $user['firstname'] . '</option>';
+            }
+            ?>
         </select>
+        <div>
+            <button type="submit">Prendre RDV</button>
+        </div>
     </form>
 </body>
 
