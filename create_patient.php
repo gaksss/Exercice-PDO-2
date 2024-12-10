@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -18,10 +19,10 @@
         <input type="text" name="firstname" id="firstname">
 
         <label for="birthdate">Date de naissance : </label>
-        <input type="text" name="birthdate" id="birthdate">
+        <input type="date" name="birthdate" id="birthdate">
 
         <label for="phone">Numéro de téléphone : </label>
-        <input type="text" name="phone" id="phone">
+        <input type="text"  maxlength="10" name="phone" id="phone" >
 
         <label for="mail">email : </label>
         <input type="text" name="mail" id="mail">

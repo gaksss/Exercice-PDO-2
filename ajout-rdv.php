@@ -14,6 +14,7 @@ try {
 
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,9 +26,17 @@ try {
 </head>
 
 <body>
-    <a href="./create_patient.php">Créer un patient</a>
-    <a href="./liste-patients.php">Liste des patients</a>
-    <a href="./ajout-rdv.php">Créer un RDV</a>
+    <form action="" method="post">
+
+        <label for="rdv"></label>
+            <input type="date" name="rdv" id="rdv">
+        
+
+        <label for="patients"></label>
+        <select name="patient" id="patient">
+            
+        </select>
+    </form>
 </body>
 
 </html>

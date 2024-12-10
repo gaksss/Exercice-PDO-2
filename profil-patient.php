@@ -1,7 +1,7 @@
 <?php
 require_once './utils/connect_db.php';
 
-// Étape 1 : Vérifier si le formulaire de mise à jour a été soumis
+// Vérifier si le formulaire de mise à jour a été soumis pour pas que ça lance le script dès que la page est mise 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update'])) {
     // Récupérer les données du formulaire
     $idPatient = $_POST['idPatient'];
@@ -61,6 +61,7 @@ if ($id) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modifier le Profil</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -83,12 +84,12 @@ if ($id) {
 
                 <div>
                     <label for="birthdate">Date de naissance :</label>
-                    <input type="text" name="birthdate" id="birthdate" value="<?= htmlspecialchars($user['birthdate']) ?>">
+                    <input type="date" name="birthdate" id="birthdate" value="<?= htmlspecialchars($user['birthdate']) ?>">
                 </div>
 
                 <div>
                     <label for="phone">Numéro de téléphone :</label>
-                    <input type="text" name="phone" id="phone" value="<?= htmlspecialchars($user['phone']) ?>">
+                    <input type="text" name="phone" id="phone" maxlength="10"  value="<?= htmlspecialchars($user['phone']) ?>" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))">
                 </div>
 
                 <div>
