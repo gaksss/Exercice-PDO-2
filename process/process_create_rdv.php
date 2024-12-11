@@ -20,9 +20,10 @@ try {
         ':idPatients' => $_POST["idPatient"]
        
     ] 
+    
 ); // ou fetch si vous savez que vous n'allez avoir qu'un seul résultat
 
-echo "RDV pris";
+
 
 
 } catch (PDOException $error) {

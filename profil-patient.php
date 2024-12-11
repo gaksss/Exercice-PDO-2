@@ -89,7 +89,7 @@ if ($id) {
 
                 <div>
                     <label for="phone">Numéro de téléphone :</label>
-                    <input type="text" name="phone" id="phone" maxlength="10"  value="<?= htmlspecialchars($user['phone']) ?>" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))">
+                    <input type="text" name="phone" id="phone" maxlength="10" value="<?= htmlspecialchars($user['phone']) ?>" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))">
                 </div>
 
                 <div>

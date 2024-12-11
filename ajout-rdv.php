@@ -1,5 +1,10 @@
 <?php
 require_once './utils/connect_db.php';
+date_default_timezone_set('UTC');
+$today = date("Y-m-d");
+
+
+
 
 $sql = "SELECT * FROM `patients`";
 
@@ -29,9 +34,9 @@ try {
     <form action="./process/process_create_rdv.php" method="post">
 
         <label for="date"></label>
-        <input type="date" name="date" id="date">
+        <input type="date" min="<?= $today ?>" name="date" id="date">
         <label for="heure"></label>
-        <input type="time" name="heure" id="heure">
+        <input type="time" name="heure" id="heure" min="09:00" max="18:00">
         <label for="patients"></label>
         <select name="idPatient" id="idPatient">
             <?php
@@ -46,9 +51,9 @@ try {
         </div>
 
     </form>
-    <div>
-        <form action="./liste-rdv.php" >
-            <button type="submit" id="listeRDV">Liste RDV</button>
+    <div class="listeRDV">
+        <form action="./liste-rdv.php">
+            <button type="submit" class="listeRDV">Liste RDV</button>
         </form>
     </div>
 </body>
