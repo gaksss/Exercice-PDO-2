@@ -1,17 +1,16 @@
 <?php
 require_once './utils/connect_db.php';
 
-$sql = "SELECT * FROM `appointments`";
+$sql = "SELECT appointments.*, patients.firstname, patients.lastname 
+        FROM appointments 
+        JOIN patients ON appointments.idPatients = patients.id";
 
 try {
     $stmt = $pdo->query($sql);
-    $users = $stmt->fetchAll(PDO::FETCH_ASSOC); // ou fetch si vous savez que vous n'allez avoir qu'un seul résultat
-
+    $appointments = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $error) {
-    echo "Erreur lors de la requete : " . $error->getMessage();
+    echo "Erreur lors de la requête : " . $error->getMessage();
 }
-
-
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +19,7 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Liste des RDV</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -29,22 +28,20 @@ try {
         <h1>Liste des RDV :</h1>
 
         <?php
-        foreach ($users as $user) {
+        foreach ($appointments as $appointment) {
         ?>
-            <li>RDV le <?= $user['dateHour']  ?> | Prénom : <?= $user['idPatients']  ?>
+            <li>
+                RDV le <?= $appointment['dateHour'] ?> | Patient : <?= $appointment['firstname'] . ' ' . $appointment['lastname'] ?>
                 <form action="./rdv.php" method="post">
-                    <input type="hidden" name="idPatient" value="<?= $user['id'] ?>">
+                    <input type="hidden" name="idRdv" value="<?= $appointment['id'] ?>">
                     <input type="submit" value="Voir plus">
                 </form>
             </li>
-
         <?php
         }
-
         ?>
 
     </ol>
-
 
     <a href="./create_patient.php">Créer un patient</a>
     <a href="./index.php">Accueil</a>

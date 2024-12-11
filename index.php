@@ -28,6 +28,7 @@ try {
     <a href="./create_patient.php">Créer un patient</a>
     <a href="./liste-patients.php">Liste des patients</a>
     <a href="./ajout-rdv.php">Créer un RDV</a>
+    <a href="./liste-rdv.php">Liste des RDV</a>
 </body>
 
 </html>

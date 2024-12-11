@@ -6,7 +6,8 @@ $today = date("Y-m-d");
 
 
 
-$sql = "SELECT * FROM `patients`";
+$sql = "SELECT * FROM `patients` ";
+
 
 try {
     $stmt = $pdo->query($sql);
